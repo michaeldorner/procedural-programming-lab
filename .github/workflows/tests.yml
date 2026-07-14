@@ -16,8 +16,6 @@ jobs:
           - exercise_01
           - exercise_02
           - exercise_03
-          - exercise_04
-          - exercise_05
 
     steps:
       - name: Checkout repository
@@ -35,37 +33,129 @@ jobs:
           cd "${{ matrix.exercise }}"
           python -m unittest discover tests/required -v
 
+      - name: Check bonus tests
+        id: bonus_exists
+        run: |
+          if [ -d "${{ matrix.exercise }}/tests/bonus" ]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Bonus tests
         id: bonus
-        if: steps.required.outcome == 'success'
+        if: |
+          steps.required.outcome == 'success' &&
+          steps.bonus_exists.outputs.exists == 'true'
         continue-on-error: true
         run: |
           cd "${{ matrix.exercise }}"
           python -m unittest discover tests/bonus -v
 
-      - name: Summary
+      - name: Write result
         if: always()
         run: |
-          echo "# ${{ matrix.exercise }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-
           if [ "${{ steps.required.outcome }}" != "success" ]; then
-            echo "❌ Failed" >> "$GITHUB_STEP_SUMMARY"
-            echo "" >> "$GITHUB_STEP_SUMMARY"
-            echo "Required tests did not pass." >> "$GITHUB_STEP_SUMMARY"
-          elif [ "${{ steps.bonus.outcome }}" = "success" ]; then
-            echo "🌟 Passed with distinction" >> "$GITHUB_STEP_SUMMARY"
-            echo "" >> "$GITHUB_STEP_SUMMARY"
-            echo "Required and bonus tests passed." >> "$GITHUB_STEP_SUMMARY"
+            status="failed"
+          elif [ "${{ steps.bonus_exists.outputs.exists }}" = "true" ] && [ "${{ steps.bonus.outcome }}" = "success" ]; then
+            status="distinction"
           else
-            echo "✅ Passed" >> "$GITHUB_STEP_SUMMARY"
-            echo "" >> "$GITHUB_STEP_SUMMARY"
-            echo "Required tests passed." >> "$GITHUB_STEP_SUMMARY"
+            status="passed"
           fi
 
-      - name: Fail job if required tests failed
+          export EXERCISE="${{ matrix.exercise }}"
+          export STATUS="$status"
+
+          python - <<'PY'
+          import json
+          import os
+
+          result = {
+              "exercise": os.environ["EXERCISE"],
+              "status": os.environ["STATUS"],
+          }
+
+          filename = f"result-{result['exercise']}.json"
+
+          with open(filename, "w", encoding="utf-8") as file:
+              json.dump(result, file)
+          PY
+
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: result-${{ matrix.exercise }}
+          path: result-${{ matrix.exercise }}.json
+
+      - name: Fail if required tests failed
         if: always()
         run: |
           if [ "${{ steps.required.outcome }}" != "success" ]; then
             exit 1
           fi
+
+  summary:
+    name: Progress Summary
+    runs-on: ubuntu-latest
+    needs: tests
+    if: always()
+
+    steps:
+      - name: Download results
+        uses: actions/download-artifact@v4
+        with:
+          pattern: result-*
+          path: results
+          merge-multiple: true
+
+      - name: Create summary
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          import sys
+          from pathlib import Path
+
+          status_text = {
+              "failed": "❌ Failed",
+              "passed": "✅ Passed",
+              "distinction": "🌟 Passed with distinction",
+          }
+
+          results = []
+
+          for path in sorted(Path("results").glob("result-*.json")):
+              with open(path, encoding="utf-8") as file:
+                  results.append(json.load(file))
+
+          results.sort(key=lambda item: item["exercise"])
+
+          total = len(results)
+          completed = sum(
+              item["status"] != "failed"
+              for item in results
+          )
+          distinction = sum(
+              item["status"] == "distinction"
+              for item in results
+          )
+
+          print("# Procedural Programming Progress")
+          print()
+          print("| Exercise | Status |")
+          print("|---|---|")
+
+          for item in results:
+              print(
+                  f"| {item['exercise']} | {status_text[item['status']]} |"
+              )
+
+          print()
+          print("## Summary")
+          print()
+          print(f"- Completed: {completed}/{total}")
+          print(f"- With distinction: {distinction}/{total}")
+
+          if completed < total:
+              sys.exit(1)
+          PY
