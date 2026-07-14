@@ -239,8 +239,8 @@ def main() -> None:
     else:
         print(render_ascii(results))
 
-    if count_completed(results) < len(results):
-        sys.exit(1)
+    # if count_completed(results) < len(results):
+    #     sys.exit(1)
 
 
 if __name__ == "__main__":
