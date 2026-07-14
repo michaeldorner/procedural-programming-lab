@@ -6,7 +6,18 @@ on:
 
 jobs:
   tests:
+    name: ${{ matrix.exercise }}
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        exercise:
+          - exercise_01
+          - exercise_02
+          - exercise_03
+          - exercise_04
+          - exercise_05
 
     steps:
       - name: Checkout repository
@@ -17,6 +28,44 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Run tests and publish summary
+      - name: Required tests
+        id: required
+        continue-on-error: true
         run: |
-          python test_report.py --format markdown >> "$GITHUB_STEP_SUMMARY"
+          cd "${{ matrix.exercise }}"
+          python -m unittest discover tests/required -v
+
+      - name: Bonus tests
+        id: bonus
+        if: steps.required.outcome == 'success'
+        continue-on-error: true
+        run: |
+          cd "${{ matrix.exercise }}"
+          python -m unittest discover tests/bonus -v
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "# ${{ matrix.exercise }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "${{ steps.required.outcome }}" != "success" ]; then
+            echo "❌ Failed" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Required tests did not pass." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "${{ steps.bonus.outcome }}" = "success" ]; then
+            echo "🌟 Passed with distinction" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Required and bonus tests passed." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "✅ Passed" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Required tests passed." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Fail job if required tests failed
+        if: always()
+        run: |
+          if [ "${{ steps.required.outcome }}" != "success" ]; then
+            exit 1
+          fi
