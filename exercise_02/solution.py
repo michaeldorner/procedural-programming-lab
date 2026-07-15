@@ -81,6 +81,3 @@ def fahrenheit_to_celsius(
     )
 
     return (fahrenheit - 32) * 5 / 9
-
-
-``
