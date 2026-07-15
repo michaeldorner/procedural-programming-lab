@@ -2,7 +2,7 @@
 
 ## Objective
 
-Implement two functions that convert temperatures between Celsius and Fahrenheit.
+Convert temperatures between Celsius and Fahrenheit.
 
 ## Tasks
 
@@ -14,30 +14,13 @@ def celsius_to_fahrenheit(
 ) -> float:
     pass
 
-
 def fahrenheit_to_celsius(
     fahrenheit: float,
 ) -> float:
     pass
 ```
 
-## Formulas
-
-### Celsius to Fahrenheit
-
-```text
-F = C × 9 / 5 + 32
-```
-
-### Fahrenheit to Celsius
-
-```text
-C = (F - 32) × 5 / 9
-```
-
 ## Examples
-
-### Celsius to Fahrenheit
 
 ```python
 celsius_to_fahrenheit(0.0)
@@ -48,9 +31,6 @@ returns
 ```python
 32.0
 ```
-
-### Fahrenheit to Celsius
-
 ```python
 fahrenheit_to_celsius(212.0)
 ```
@@ -61,46 +41,31 @@ returns
 100.0
 ```
 
-## Required Tests
+## Notes
 
-Run the required tests:
-
-```bash
-python -m unittest discover tests/required -v
-```
-
-## Bonus Tests
-
-Run the bonus tests:
-
-```bash
-python -m unittest discover tests/bonus -v
-```
-
-## Run All Tests
-
-```bash
-python -m unittest discover tests -v
-```
-
-## Coding Guidelines
-
-- Follow PEP 8.
-- Do not modify the tests.
+- Return the requested value.
+- Do not print the result inside the function.
 - Do not change the function signatures.
-- Use type hints.
 
+## Bonus
 
-## Expected Results
+Negative temperatures are valid.
 
-### Passed
+However, temperatures below absolute zero are not physically meaningful:
 
-```text
-✅ exercise_02
-```
+- below `-273.15 °C`
+- below `-459.67 °F`
 
-### Passed with Distinction
+The excellent solution should raise a `ValueError` for such values.
 
-```text
-🌟 exercise_02
-```
+The excellent solution should also reject non-finite values such as:
+
+- `float("nan")`
+- `float("inf")`
+- `float("-inf")`
+
+Roundtrip conversions should preserve the original value approximately:
+
+```python
+celsius -> fahrenheit -> celsius
+fahrenheit -> celsius -> fahrenheit
