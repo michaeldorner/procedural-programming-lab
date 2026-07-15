@@ -8,7 +8,9 @@ from solution import (
 
 class Exercise01BonusTests(unittest.TestCase):
 
-    def test_rectangle_area_with_float_values(self):
+    def test_rectangle_area_with_float_values(
+        self,
+    ) -> None:
         width = 1.5
         height = 2.0
         expected_area = 3.0
@@ -23,7 +25,9 @@ class Exercise01BonusTests(unittest.TestCase):
             expected_area,
         )
 
-    def test_rectangle_perimeter_with_float_values(self):
+    def test_rectangle_perimeter_with_float_values(
+        self,
+    ) -> None:
         width = 1.5
         height = 2.0
         expected_perimeter = 7.0
@@ -38,7 +42,9 @@ class Exercise01BonusTests(unittest.TestCase):
             expected_perimeter,
         )
 
-    def test_rectangle_area_with_zero_width(self):
+    def test_rectangle_area_with_zero_width(
+        self,
+    ) -> None:
         width = 0.0
         height = 5.0
         expected_area = 0.0
@@ -53,7 +59,9 @@ class Exercise01BonusTests(unittest.TestCase):
             expected_area,
         )
 
-    def test_rectangle_perimeter_with_zero_width(self):
+    def test_rectangle_perimeter_with_zero_width(
+        self,
+    ) -> None:
         width = 0.0
         height = 5.0
         expected_perimeter = 10.0
@@ -68,7 +76,21 @@ class Exercise01BonusTests(unittest.TestCase):
             expected_perimeter,
         )
 
-    def test_rectangle_perimeter_with_negative_height(self):
+    def test_rectangle_area_with_negative_width(
+        self,
+    ) -> None:
+        width = -1.0
+        height = 5.0
+
+        with self.assertRaises(ValueError):
+            rectangle_area(
+                width,
+                height,
+            )
+
+    def test_rectangle_perimeter_with_negative_height(
+        self,
+    ) -> None:
         width = 1.0
         height = -5.0
 

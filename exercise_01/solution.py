@@ -1,29 +1,56 @@
+# Student template
+
 def rectangle_area(
     width: float,
     height: float,
 ) -> float:  # type: ignore
-
-    if width < 0 or height < 0:
-        raise ValueError(
-            "Dimensions must be non-negative."
-        )
-
-    return width * height
+    pass
 
 
 def rectangle_perimeter(
     width: float,
     height: float,
 ) -> float:  # type: ignore
+    pass
 
+
+# Basic solution
+
+def rectangle_area(  # type: ignore
+    width: float,
+    height: float,
+) -> float:
+    return width * height
+
+
+def rectangle_perimeter(  # type: ignore
+    width: float,
+    height: float,
+) -> float:
+    return 2 * (width + height)
+
+
+# Excellent solution for bonus tests
+
+def rectangle_area(  # type: ignore
+    width: float,
+    height: float,
+) -> float:
     if width < 0 or height < 0:
         raise ValueError(
-            "Dimensions must be non-negative."
+            "Width and height must be non-negative."
         )
 
-    return 2 * width + 2 * height
+    return width * height
 
 
-if __name__ == "__main__":
-    assert rectangle_area(3.0, 4.0) == 12.0
-    assert rectangle_perimeter(3.0, 4.0) == 14.0
+def rectangle_perimeter(  # type: ignore
+    width: float,
+    height: float,
+) -> float:
+    if width < 0 or height < 0:
+        raise ValueError(
+            "Width and height must be non-negative."
+        )
+
+    return 2 * (width + height)
