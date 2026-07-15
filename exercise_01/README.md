@@ -25,22 +25,8 @@ def rectangle_perimeter(
 ## Examples
 
 ```python
-rectangle_area(3.0, 4.0)
-```
-
-returns
-
-```python
-12.0
-```
-```python
-rectangle_perimeter(3.0, 4.0)
-```
-
-returns
-
-```python
-14.0
+rectangle_area(3.0, 4.0) # returns `12.0`
+rectangle_perimeter(3.0, 4.0) # returns `14.0`
 ```
 
 ## Notes
