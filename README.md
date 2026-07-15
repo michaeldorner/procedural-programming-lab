@@ -128,7 +128,7 @@ python run_tests.py
 python run_tests.py
 
 git add .
-git commit -m "Complete exercise_01" # update the number
+git commit -m "Complete exercise_01" # update the excercise number
 git push
 ```
 
