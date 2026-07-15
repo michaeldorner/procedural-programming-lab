@@ -25,22 +25,8 @@ def circle_circumference(
 ## Examples
 
 ```python
-circle_area(1.0)
-```
-
-returns
-
-```python
-3.141592653589793
-```
-```python
-circle_circumference(1.0)
-```
-
-returns
-
-```python
-6.283185307179586
+circle_area(1.0) # returns 3.141592653589793
+circle_circumference(1.0) # returns 6.283185307179586
 ```
 
 ## Notes
