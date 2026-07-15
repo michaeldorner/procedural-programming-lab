@@ -4,8 +4,6 @@ This repository contains small, testable exercises for a course on procedural pr
 
 ## Exercise Overview
 
-## Exercise Overview
-
 | Exercise | Title | High-Level Topic | Core Concepts |
 |---|---|---|---|
 | `exercise_01` | Rectangles | Basic functions and numeric calculations | functions, parameters, return values, arithmetic, validation |
