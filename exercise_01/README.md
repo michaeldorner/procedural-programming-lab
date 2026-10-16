@@ -9,13 +9,13 @@ Calculate the area and perimeter of a rectangle.
 Implement the following functions in `solution.py`:
 
 ```python
-def rectangle_area(
+def calculate_rectangle_area(
     width: float,
     height: float,
 ) -> float:
     pass
 
-def rectangle_perimeter(
+def calculate_rectangle_perimeter(
     width: float,
     height: float,
 ) -> float:
@@ -25,8 +25,8 @@ def rectangle_perimeter(
 ## Examples
 
 ```python
-rectangle_area(3.0, 4.0) # returns `12.0`
-rectangle_perimeter(3.0, 4.0) # returns `14.0`
+calculate_rectangle_area(3.0, 4.0) # returns `12.0`
+calculate_rectangle_perimeter(3.0, 4.0) # returns `14.0`
 ```
 
 ## Notes
