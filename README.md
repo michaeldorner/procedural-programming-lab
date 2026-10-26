@@ -124,18 +124,29 @@ Procedural Programming
 
 ```text
 procedural-programming/
-├── README.md            # Course information and workflow
-├── run_tests.py         # Runs all tests and shows overall progress
+├── README.md                                         # Course information and workflow
+├── run_tests.py                                      # Runs all tests and shows overall progress
+├── test_report.py                                    # Generates exercise progress report
 │
-├── exercise_01/
-│   ├── README.md        # Exercise description and examples
-│   ├── solution.py      # Implement your solution here
-│   └── tests/
-│       ├── required/
-│       │   └── ...      # Required tests
-│       └── bonus/
-│           └── ...      # Bonus tests
-└── ...
+├── 05_functions_as_procedures/
+│   ├── exercise_01_rectangles/
+│   │   ├── README.md                                 # Exercise description and examples
+│   │   ├── solution.py                               # Implement your solution here
+│   │   └── tests/
+│   │       └── ...                                   # Test suite
+│   └── ...
+├── 06_decisions_and_branching/
+├── 07_validation_and_defensive_programming/
+├── 08_repetition_and_loops/
+├── 09_accumulating_counting_and_searching/
+├── 10_working_with_collections/
+├── 11_mutability_references_and_side_effects/
+├── 12_structured_data/
+├── 13_working_with_time_based_data/
+├── 14_processing_text/
+├── 15_processing_files/
+├── 16_decomposing/
+└── 17_integrating_procedures_into_small_programs/
 ```
 
 ## Running Tests
@@ -143,7 +154,7 @@ procedural-programming/
 Run tests for a single exercise:
 
 ```bash
-cd exercise_01
+cd 05_functions_as_procedures/exercise_01_rectangles
 python -m unittest discover tests -v
 ```
 
@@ -165,7 +176,7 @@ python run_tests.py
 python run_tests.py
 
 git add .
-git commit -m "Complete exercise_01" # update the excercise number
+git commit -m "Complete exercise_01_rectangles" # update with the exercise name
 git push
 ```
 

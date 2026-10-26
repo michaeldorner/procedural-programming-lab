@@ -3,14 +3,38 @@ import sys
 from pathlib import Path
 
 failed = 0
-for exercise in sorted(Path(".").glob("exercise_*")):
-    if not exercise.is_dir():
-        continue
-    result = subprocess.run([sys.executable, "-m", "unittest", "discover", "tests", "-v"],
-                            cwd=exercise, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+exercises = sorted(
+    [
+        exercise
+        for exercise in Path(".").rglob("exercise_*")
+        if exercise.is_dir()
+    ]
+)
+
+test_cmd = """
+import sys, pathlib, unittest
+if pathlib.Path('reference_solution.py').exists():
+    import reference_solution
+    sys.modules['solution'] = reference_solution
+unittest.main(module=None, argv=['unittest', 'discover', 'tests', '-v'])
+"""
+
+for exercise in exercises:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-c",
+            test_cmd,
+        ],
+        cwd=exercise,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    rel_path = exercise.relative_to(Path("."))
     if result.returncode == 0:
-        print(f"✅ {exercise.name}")
+        print(f"✅ {rel_path}")
     else:
-        print(f"❌ {exercise.name}")
+        print(f"❌ {rel_path}")
         failed = 1
 sys.exit(failed)
+

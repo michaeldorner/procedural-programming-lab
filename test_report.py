@@ -13,13 +13,11 @@ class OutputFormat(StrEnum):
 class Status(StrEnum):
     FAILED = "failed"
     PASSED = "passed"
-    DISTINCTION = "distinction"
 
 
 STATUS_TEXT = {
     Status.FAILED: "❌ Failed",
     Status.PASSED: "✅ Passed",
-    Status.DISTINCTION: "🌟 Passed with distinction",
 }
 
 
@@ -33,7 +31,6 @@ ASCII_TEMPLATE = """
 {progress_bar} {completion}
 
 Completed          {completed}/{total}
-With distinction   {distinction}/{total}
 """.strip()
 
 
@@ -47,7 +44,6 @@ MARKDOWN_TEMPLATE = """
 ## Summary
 
 - Completed: {completed}/{total}
-- With distinction: {distinction}/{total}
 """.strip()
 
 
@@ -71,16 +67,20 @@ def parse_arguments() -> argparse.Namespace:
 
 def test_passed(
     exercise: Path,
-    test_directory: str,
+    test_directory: str = "tests",
 ) -> bool:
+    test_cmd = f"""
+import sys, pathlib, unittest
+if pathlib.Path('reference_solution.py').exists():
+    import reference_solution
+    sys.modules['solution'] = reference_solution
+unittest.main(module=None, argv=['unittest', 'discover', '{test_directory}', '-v'])
+"""
     result = subprocess.run(
         [
             sys.executable,
-            "-m",
-            "unittest",
-            "discover",
-            test_directory,
-            "-v",
+            "-c",
+            test_cmd,
         ],
         cwd=exercise,
         stdout=subprocess.DEVNULL,
@@ -93,36 +93,51 @@ def test_passed(
 def exercise_status(
     exercise: Path,
 ) -> Status:
-    required_passed = test_passed(
-        exercise,
-        "tests/required",
-    )
+    tests_directory = exercise / "tests"
+    required_test_file = tests_directory / "required" / "test_required.py"
 
-    if not required_passed:
-        return Status.FAILED
-
-    bonus_directory = exercise / "tests" / "bonus"
-
-    if bonus_directory.exists():
-        bonus_passed = test_passed(
+    if required_test_file.exists():
+        required_passed = test_passed(
             exercise,
-            "tests/bonus",
+            "tests/required",
         )
+        if not required_passed:
+            return Status.FAILED
 
-        if bonus_passed:
-            return Status.DISTINCTION
+        bonus_test_file = tests_directory / "bonus" / "test_bonus.py"
+        if bonus_test_file.exists():
+            bonus_passed = test_passed(
+                exercise,
+                "tests/bonus",
+            )
+            if not bonus_passed:
+                return Status.FAILED
 
-    return Status.PASSED
+        return Status.PASSED
+
+    all_passed = test_passed(
+        exercise,
+        "tests",
+    )
+    return Status.PASSED if all_passed else Status.FAILED
 
 
 def collect_results() -> dict[str, Status]:
     results: dict[str, Status] = {}
 
-    for exercise in sorted(Path(".").glob("exercise_*")):
-        if exercise.is_dir():
-            results[exercise.name] = exercise_status(
-                exercise,
-            )
+    exercises = sorted(
+        [
+            exercise
+            for exercise in Path(".").rglob("exercise_*")
+            if exercise.is_dir()
+        ]
+    )
+
+    for exercise in exercises:
+        rel_path = str(exercise.relative_to(Path(".")))
+        results[rel_path] = exercise_status(
+            exercise,
+        )
 
     return results
 
@@ -132,15 +147,6 @@ def count_completed(
 ) -> int:
     return sum(
         status != Status.FAILED
-        for status in results.values()
-    )
-
-
-def count_distinction(
-    results: dict[str, Status],
-) -> int:
-    return sum(
-        status == Status.DISTINCTION
         for status in results.values()
     )
 
@@ -159,10 +165,11 @@ def render_ascii_exercise_results(
     results: dict[str, Status],
 ) -> str:
     lines: list[str] = []
+    width = max((len(name) for name in results), default=12)
 
     for exercise, status in results.items():
         lines.append(
-            f"{exercise:<12} {STATUS_TEXT[status]}",
+            f"{exercise:<{width}}  {STATUS_TEXT[status]}",
         )
 
     return "\n".join(lines)
@@ -190,7 +197,6 @@ def render_ascii(
         return "No exercises found."
 
     completed = count_completed(results)
-    distinction = count_distinction(results)
     completion = completed / total
 
     return ASCII_TEMPLATE.format(
@@ -202,7 +208,6 @@ def render_ascii(
         ),
         completion=f"{completion:.0%}",
         completed=completed,
-        distinction=distinction,
         total=total,
     )
 
@@ -216,14 +221,12 @@ def render_markdown(
         return "# Procedural Programming Progress\n\nNo exercises found."
 
     completed = count_completed(results)
-    distinction = count_distinction(results)
 
     return MARKDOWN_TEMPLATE.format(
         exercise_results=render_markdown_exercise_results(
             results,
         ),
         completed=completed,
-        distinction=distinction,
         total=total,
     )
 
