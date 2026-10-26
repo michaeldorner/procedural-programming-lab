@@ -117,7 +117,7 @@ class FactorialValidationTests(unittest.TestCase):
     def test_rejects_boolean_true(
         self,
     ) -> None:
-        boolean_value = cast(
+        boolean_value: int = cast(
             int,
             True,
         )
@@ -132,7 +132,7 @@ class FactorialValidationTests(unittest.TestCase):
     def test_rejects_float(
         self,
     ) -> None:
-        float_value = cast(
+        float_value: int = cast(
             int,
             5.0,
         )

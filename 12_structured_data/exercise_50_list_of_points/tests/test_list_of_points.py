@@ -10,7 +10,11 @@ class FirstQuadrantPointsTests(unittest.TestCase):
     def test_mixed_quadrant_points(
         self,
     ) -> None:
-        points: list[tuple[float, float]] = [(1.0, 2.0), (-1.0, 3.0), (4.0, 5.0)]
+        points: list[tuple[float, float]] = [
+            (1.0, 2.0),
+            (-1.0, 3.0),
+            (4.0, 5.0),
+        ]
         expected_count: int = 2
 
         actual_count: int = count_first_quadrant(

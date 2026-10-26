@@ -100,7 +100,7 @@ class PointValidationTests(unittest.TestCase):
     def test_rejects_point_with_single_coordinate(
         self,
     ) -> None:
-        invalid_point = cast(
+        invalid_point: tuple[float, float] = cast(
             tuple[float, float],
             (1.0,),
         )
@@ -118,7 +118,7 @@ class PointValidationTests(unittest.TestCase):
         self,
     ) -> None:
         valid_point: tuple[float, float] = (0.0, 0.0)
-        invalid_point = cast(
+        invalid_point: tuple[float, float] = cast(
             tuple[float, float],
             (1.0, 2.0, 3.0),
         )

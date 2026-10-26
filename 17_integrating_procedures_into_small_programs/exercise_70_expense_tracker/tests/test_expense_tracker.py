@@ -10,7 +10,10 @@ class ExpenseTotalTests(unittest.TestCase):
     def test_multiple_expenses_total(
         self,
     ) -> None:
-        expense_records: list[dict[str, float]] = [{"amount": 2.5}, {"amount": 3.5}]
+        expense_records: list[dict[str, float]] = [
+            {"amount": 2.5},
+            {"amount": 3.5},
+        ]
         expected_total: float = 6.0
 
         actual_total: float = expense_total(

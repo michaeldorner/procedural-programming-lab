@@ -24,12 +24,23 @@ class CsvGradeStatisticsTests(unittest.TestCase):
             file_path: str = temporary_file.name
 
         try:
-            actual_statistics: tuple[float, float, float] = csv_grade_statistics(
+            actual_statistics: tuple[
+                float, float, float
+            ] = csv_grade_statistics(
                 file_path,
             )
-            self.assertAlmostEqual(actual_statistics[0], expected_statistics[0])
-            self.assertAlmostEqual(actual_statistics[1], expected_statistics[1])
-            self.assertAlmostEqual(actual_statistics[2], expected_statistics[2])
+            self.assertAlmostEqual(
+                actual_statistics[0],
+                expected_statistics[0],
+            )
+            self.assertAlmostEqual(
+                actual_statistics[1],
+                expected_statistics[1],
+            )
+            self.assertAlmostEqual(
+                actual_statistics[2],
+                expected_statistics[2],
+            )
         finally:
             os.remove(file_path)
 
@@ -48,12 +59,23 @@ class CsvGradeStatisticsTests(unittest.TestCase):
             file_path: str = temporary_file.name
 
         try:
-            actual_statistics: tuple[float, float, float] = csv_grade_statistics(
+            actual_statistics: tuple[
+                float, float, float
+            ] = csv_grade_statistics(
                 file_path,
             )
-            self.assertAlmostEqual(actual_statistics[0], expected_statistics[0])
-            self.assertAlmostEqual(actual_statistics[1], expected_statistics[1])
-            self.assertAlmostEqual(actual_statistics[2], expected_statistics[2])
+            self.assertAlmostEqual(
+                actual_statistics[0],
+                expected_statistics[0],
+            )
+            self.assertAlmostEqual(
+                actual_statistics[1],
+                expected_statistics[1],
+            )
+            self.assertAlmostEqual(
+                actual_statistics[2],
+                expected_statistics[2],
+            )
         finally:
             os.remove(file_path)
 

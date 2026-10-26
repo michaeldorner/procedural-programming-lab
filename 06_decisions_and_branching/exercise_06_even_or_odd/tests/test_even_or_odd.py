@@ -93,7 +93,7 @@ class IntegerValidationTests(unittest.TestCase):
     def test_rejects_boolean_true(
         self,
     ) -> None:
-        boolean_value = cast(
+        boolean_value: int = cast(
             int,
             True,
         )
@@ -108,7 +108,7 @@ class IntegerValidationTests(unittest.TestCase):
     def test_rejects_boolean_false(
         self,
     ) -> None:
-        boolean_value = cast(
+        boolean_value: int = cast(
             int,
             False,
         )
@@ -123,7 +123,7 @@ class IntegerValidationTests(unittest.TestCase):
     def test_rejects_float_value(
         self,
     ) -> None:
-        float_value = cast(
+        float_value: int = cast(
             int,
             2.0,
         )

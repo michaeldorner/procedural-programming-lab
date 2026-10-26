@@ -174,7 +174,7 @@ class ScoreValidationTests(unittest.TestCase):
     def test_rejects_boolean_true(
         self,
     ) -> None:
-        boolean_score = cast(
+        boolean_score: int = cast(
             int,
             True,
         )
@@ -189,7 +189,7 @@ class ScoreValidationTests(unittest.TestCase):
     def test_rejects_boolean_false(
         self,
     ) -> None:
-        boolean_score = cast(
+        boolean_score: int = cast(
             int,
             False,
         )
@@ -204,7 +204,7 @@ class ScoreValidationTests(unittest.TestCase):
     def test_rejects_float_score(
         self,
     ) -> None:
-        float_score = cast(
+        float_score: int = cast(
             int,
             82.5,
         )

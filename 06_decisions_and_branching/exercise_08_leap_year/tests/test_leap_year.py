@@ -114,7 +114,7 @@ class YearValidationTests(unittest.TestCase):
     def test_rejects_boolean_true(
         self,
     ) -> None:
-        boolean_year = cast(
+        boolean_year: int = cast(
             int,
             True,
         )
@@ -129,7 +129,7 @@ class YearValidationTests(unittest.TestCase):
     def test_rejects_boolean_false(
         self,
     ) -> None:
-        boolean_year = cast(
+        boolean_year: int = cast(
             int,
             False,
         )
@@ -144,7 +144,7 @@ class YearValidationTests(unittest.TestCase):
     def test_rejects_float_year(
         self,
     ) -> None:
-        float_year = cast(
+        float_year: int = cast(
             int,
             2024.0,
         )

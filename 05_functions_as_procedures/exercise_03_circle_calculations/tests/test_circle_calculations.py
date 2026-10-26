@@ -168,7 +168,9 @@ class CircleConsistencyTests(unittest.TestCase):
             radius,
         )
         expected_circumference_squared: float = 4.0 * math.pi * calculated_area
-        actual_circumference_squared: float = calculated_circumference * calculated_circumference
+        actual_circumference_squared: float = (
+            calculated_circumference * calculated_circumference
+        )
 
         self.assertAlmostEqual(
             actual_circumference_squared,

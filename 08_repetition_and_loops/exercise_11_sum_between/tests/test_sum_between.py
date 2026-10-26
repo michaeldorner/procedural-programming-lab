@@ -148,7 +148,7 @@ class SumBetweenValidationTests(unittest.TestCase):
     def test_rejects_boolean_start(
         self,
     ) -> None:
-        boolean_start = cast(
+        boolean_start: int = cast(
             int,
             True,
         )
@@ -166,7 +166,7 @@ class SumBetweenValidationTests(unittest.TestCase):
         self,
     ) -> None:
         start: int = 1
-        boolean_end = cast(
+        boolean_end: int = cast(
             int,
             False,
         )
@@ -182,7 +182,7 @@ class SumBetweenValidationTests(unittest.TestCase):
     def test_rejects_float_start(
         self,
     ) -> None:
-        float_start = cast(
+        float_start: int = cast(
             int,
             1.5,
         )
@@ -200,7 +200,7 @@ class SumBetweenValidationTests(unittest.TestCase):
         self,
     ) -> None:
         start: int = 1
-        float_end = cast(
+        float_end: int = cast(
             int,
             5.5,
         )

@@ -126,7 +126,7 @@ class ValueValidationTests(unittest.TestCase):
     def test_rejects_boolean_first_value(
         self,
     ) -> None:
-        boolean_first = cast(
+        boolean_first: int = cast(
             int,
             True,
         )
@@ -146,7 +146,7 @@ class ValueValidationTests(unittest.TestCase):
         self,
     ) -> None:
         first: int = 1
-        float_second = cast(
+        float_second: int = cast(
             int,
             2.5,
         )
@@ -166,7 +166,7 @@ class ValueValidationTests(unittest.TestCase):
     ) -> None:
         first: int = 1
         second: int = 2
-        float_third = cast(
+        float_third: int = cast(
             int,
             3.0,
         )

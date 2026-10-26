@@ -2,8 +2,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-failed = 0
-exercises = sorted(
+failed: int = 0
+exercises: list[Path] = sorted(
     [
         exercise
         for exercise in Path(".").rglob("exercise_*")
@@ -11,16 +11,19 @@ exercises = sorted(
     ]
 )
 
-test_cmd = """
+test_cmd: str = """
 import sys, pathlib, unittest
 if pathlib.Path('reference_solution.py').exists():
     import reference_solution
     sys.modules['solution'] = reference_solution
-unittest.main(module=None, argv=['unittest', 'discover', 'tests', '-v'])
+unittest.main(
+    module=None,
+    argv=['unittest', 'discover', 'tests', '-v'],
+)
 """
 
 for exercise in exercises:
-    result = subprocess.run(
+    result: subprocess.CompletedProcess[bytes] = subprocess.run(
         [
             sys.executable,
             "-c",
@@ -30,7 +33,7 @@ for exercise in exercises:
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
-    rel_path = exercise.relative_to(Path("."))
+    rel_path: Path = exercise.relative_to(Path("."))
     if result.returncode == 0:
         print(f"✅ {rel_path}")
     else:
