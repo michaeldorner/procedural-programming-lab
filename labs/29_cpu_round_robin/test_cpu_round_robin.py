@@ -2,18 +2,18 @@
 
 import unittest
 
-from cpu_round_robin import round_robin_completion_times
+from .cpu_round_robin import simulate_round_robin
 
 
 class TestCpuRoundRobin(unittest.TestCase):
-    """Tests for round_robin_completion_times."""
+    """Tests for simulate_round_robin."""
 
     def test_round_robin_schedule(self) -> None:
-        self.assertEqual(round_robin_completion_times([5, 3, 1], 2), [9, 8, 5])
-        self.assertEqual(round_robin_completion_times([], 2), [])
+        self.assertEqual(simulate_round_robin([5, 3, 1], 2), [9, 8, 5])
+        self.assertEqual(simulate_round_robin([], 2), [])
 
     def test_invalid_inputs_raise_value_error(self) -> None:
         with self.assertRaises(ValueError):
-            round_robin_completion_times([5, 3], 0)
+            simulate_round_robin([5, 3], 0)
         with self.assertRaises(ValueError):
-            round_robin_completion_times([5, 0], 2)
+            simulate_round_robin([5, 0], 2)

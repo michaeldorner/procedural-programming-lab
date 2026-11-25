@@ -7,7 +7,7 @@ Calculate synodic lunar age in days and classify it into the 8 standard lunar ph
 
 ## Requirements
 
-- Implement `lunar_age_days` to wrap the day offset into $[0, 29.530588)$.
+- Implement `calculate_lunar_age_days` to wrap the day offset into $[0, 29.530588)$.
 - Implement `classify_moon_phase` to map the wrapped lunar age into 8 equal octants: new moon, waxing crescent, first quarter, waxing gibbous, full moon, waning gibbous, last quarter, or waning crescent.
 
 ## Worked Examples

@@ -4,7 +4,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from weather_station_log import summarize_weather_log
+from .weather_station_log import summarize_weather_log
 
 
 class TestWeatherStationLog(unittest.TestCase):

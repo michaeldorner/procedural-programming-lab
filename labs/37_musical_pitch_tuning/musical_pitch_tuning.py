@@ -3,12 +3,12 @@
 from pathlib import Path
 
 
-def midi_to_hz(midi_note: int) -> float:
+def convert_midi_to_hz(midi_note: int) -> float:
     """Convert MIDI note number to frequency in Hz (A4 = 69 = 440.0 Hz)."""
     raise NotImplementedError
 
 
-def hz_to_cents_offset(measured_hz: float, target_hz: float) -> float | None:
+def calculate_cents_offset(measured_hz: float, target_hz: float) -> float | None:
     """Return tuning deviation in cents, or None if either frequency <= 0.0."""
     raise NotImplementedError
 
@@ -33,4 +33,4 @@ def write_sine_wav(
 
 
 if __name__ == "__main__":
-    print("A4 Hz:", midi_to_hz(69), "PCM bytes:", len(synthesize_sine_pcm16(440.0, 0.1)))
+    print("A4 Hz:", convert_midi_to_hz(69), "PCM bytes:", len(synthesize_sine_pcm16(440.0, 0.1)))

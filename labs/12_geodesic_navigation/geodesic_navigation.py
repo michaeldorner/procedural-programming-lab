@@ -8,7 +8,7 @@ MAX_LONGITUDE: float = 180.0
 Coords = tuple[float, float]
 
 
-def haversine_distance_km(origin: Coords, destination: Coords) -> float:
+def calculate_haversine_distance_km(origin: Coords, destination: Coords) -> float:
     """Return great-circle distance in km between two `(lat, lon)` degree pairs.
 
 Raises:
@@ -22,4 +22,4 @@ if __name__ == "__main__":
     chemnitz: Coords = (50.8278, 12.9214)
     berlin: Coords = (52.5200, 13.4050)
     print("Chemnitz -> Berlin km:",
-          round(haversine_distance_km(chemnitz, berlin), 2))
+          round(calculate_haversine_distance_km(chemnitz, berlin), 2))

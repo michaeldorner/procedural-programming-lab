@@ -2,18 +2,18 @@
 
 import unittest
 
-from prime_factorization import is_prime, prime_factors
+from .prime_factorization import is_prime, factorize_primes
 
 
 class TestPrimeFactorization(unittest.TestCase):
-    """Tests for prime_factors and is_prime."""
+    """Tests for factorize_primes and is_prime."""
 
     def test_prime_factors(self) -> None:
-        self.assertEqual(prime_factors(2), [2])
-        self.assertEqual(prime_factors(84), [2, 2, 3, 7])
-        self.assertEqual(prime_factors(97), [97])
+        self.assertEqual(factorize_primes(2), [2])
+        self.assertEqual(factorize_primes(84), [2, 2, 3, 7])
+        self.assertEqual(factorize_primes(97), [97])
         with self.assertRaises(ValueError):
-            prime_factors(1)
+            factorize_primes(1)
 
     def test_is_prime(self) -> None:
         self.assertIs(is_prime(1), False)

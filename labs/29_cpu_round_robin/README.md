@@ -7,7 +7,7 @@ Simulate a Round-Robin CPU scheduler with a fixed time quantum for processes arr
 
 ## Requirements
 
-- Implement `round_robin_completion_times` to raise a value error if the quantum or any burst time is non-positive.
+- Implement `simulate_round_robin` to raise a value error if the quantum or any burst time is non-positive.
 - Execute processes in cyclic order for up to `quantum` time units per turn and return each process's completion time in original order.
 
 ## Worked Examples

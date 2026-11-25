@@ -7,8 +7,8 @@ Calculate apparent solar time from standard clock hours, longitude offset, and t
 
 ## Requirements
 
-- Implement `solar_noon_offset_minutes` as $4 \cdot (\text{meridian\_deg} - \text{longitude\_deg}) - \text{equation\_of\_time\_min}$.
-- Implement `apparent_solar_hour` by shifting standard clock hours by the negative offset in hours and wrapping into $[0, 24)$.
+- Implement `calculate_solar_noon_offset_minutes` as $4 \cdot (\text{meridian\_deg} - \text{longitude\_deg}) - \text{equation\_of\_time\_min}$.
+- Implement `calculate_apparent_solar_hour` by shifting standard clock hours by the negative offset in hours and wrapping into $[0, 24)$.
 - Reject non-finite inputs or longitudes/meridians outside $[-180^\circ, 180^\circ]$ with a value error.
 
 ## Worked Examples

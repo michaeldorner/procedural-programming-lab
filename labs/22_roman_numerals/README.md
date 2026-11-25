@@ -7,8 +7,8 @@ Convert integers between 1 and 3999 to canonical Roman numerals and parse canoni
 
 ## Requirements
 
-- Implement `int_to_roman` to reject integers outside $[1, 3999]$ and produce the canonical Roman numeral for valid integers.
-- Implement `roman_to_int` to parse case-insensitive Roman numerals and reject invalid symbols or non-canonical forms (such as `IIII` or `IC`).
+- Implement `convert_int_to_roman` to reject integers outside $[1, 3999]$ and produce the canonical Roman numeral for valid integers.
+- Implement `convert_roman_to_int` to parse case-insensitive Roman numerals and reject invalid symbols or non-canonical forms (such as `IIII` or `IC`).
 
 ## Worked Examples
 
@@ -16,7 +16,7 @@ Convert integers between 1 and 3999 to canonical Roman numerals and parse canoni
 
 ## Implementation Hints
 
-- Use an ordered table of `(value, symbol)` pairs and verify canonical form by round-tripping via `int_to_roman`.
+- Use an ordered table of `(value, symbol)` pairs and verify canonical form by round-tripping via `convert_int_to_roman`.
 
 ## Run & Test
 

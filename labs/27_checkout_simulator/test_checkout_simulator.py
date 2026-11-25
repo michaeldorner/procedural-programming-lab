@@ -2,7 +2,7 @@
 
 import unittest
 
-from checkout_simulator import simulate_checkout
+from .checkout_simulator import simulate_checkout
 
 
 class TestCheckoutSimulator(unittest.TestCase):

@@ -7,7 +7,7 @@ Decompose integers into ascending prime factors and test primality.
 
 ## Requirements
 
-- Implement `prime_factors` to raise a value error for integers below 2, and otherwise return all prime factors in ascending order.
+- Implement `factorize_primes` to raise a value error for integers below 2, and otherwise return all prime factors in ascending order.
 - Implement `is_prime` to indicate whether an integer is at least 2 and has no divisors other than 1 and itself.
 
 ## Worked Examples

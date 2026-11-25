@@ -5,9 +5,9 @@ import tempfile
 import unittest
 import wave
 
-from musical_pitch_tuning import (
-    hz_to_cents_offset,
-    midi_to_hz,
+from .musical_pitch_tuning import (
+    calculate_cents_offset,
+    convert_midi_to_hz,
     synthesize_sine_pcm16,
     write_sine_wav,
 )
@@ -17,10 +17,10 @@ class TestMusicalPitchTuning(unittest.TestCase):
     """Tests for MIDI, cents, PCM synthesis, and WAV export."""
 
     def test_midi_and_cents(self) -> None:
-        self.assertAlmostEqual(midi_to_hz(69), 440.0)
-        self.assertAlmostEqual(midi_to_hz(81), 880.0)
-        self.assertAlmostEqual(hz_to_cents_offset(440.0, 440.0), 0.0)  # type: ignore[arg-type]
-        self.assertIsNone(hz_to_cents_offset(0.0, 440.0))
+        self.assertAlmostEqual(convert_midi_to_hz(69), 440.0)
+        self.assertAlmostEqual(convert_midi_to_hz(81), 880.0)
+        self.assertAlmostEqual(calculate_cents_offset(440.0, 440.0), 0.0)  # type: ignore[arg-type]
+        self.assertIsNone(calculate_cents_offset(0.0, 440.0))
 
     def test_pcm_and_wav(self) -> None:
         with self.assertRaises(ValueError):

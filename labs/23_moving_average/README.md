@@ -7,7 +7,7 @@ Compute the Simple Moving Average (SMA) over a fixed window without modifying th
 
 ## Requirements
 
-- Implement `simple_moving_average` to raise a value error when the window size is non-positive, and an empty list when the series is shorter than the window.
+- Implement `calculate_moving_average` to raise a value error when the window size is non-positive, and an empty list when the series is shorter than the window.
 - Otherwise return the arithmetic mean of every contiguous slice of length `window`.
 
 ## Worked Examples

@@ -1,7 +1,7 @@
 """Lab 29: CPU Round-Robin."""
 
 
-def round_robin_completion_times(burst_times: list[int], quantum: int) -> list[int]:
+def simulate_round_robin(burst_times: list[int], quantum: int) -> list[int]:
     """Return completion times per process under Round-Robin scheduling.
 
 Raises:
@@ -11,4 +11,4 @@ Raises:
 
 
 if __name__ == "__main__":
-    print(round_robin_completion_times([5, 3, 1], 2))
+    print(simulate_round_robin([5, 3, 1], 2))

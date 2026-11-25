@@ -15,7 +15,7 @@ Raises:
     raise NotImplementedError
 
 
-def triangle_area(a: float, b: float, c: float) -> float:
+def calculate_triangle_area(a: float, b: float, c: float) -> float:
     """Return Heron's area for a valid triangle.
 
 Raises:
@@ -25,4 +25,4 @@ Raises:
 
 
 if __name__ == "__main__":
-    print(classify_triangle(3.0, 4.0, 5.0), triangle_area(3.0, 4.0, 5.0))
+    print(classify_triangle(3.0, 4.0, 5.0), calculate_triangle_area(3.0, 4.0, 5.0))

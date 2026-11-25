@@ -1,7 +1,7 @@
 """Lab 17: Amortization Schedule."""
 
 
-def monthly_payment(principal: float, annual_rate: float, months: int) -> float:
+def calculate_monthly_payment(principal: float, annual_rate: float, months: int) -> float:
     """Return fixed monthly payment for a loan.
 
 Raises:
@@ -10,7 +10,7 @@ Raises:
     raise NotImplementedError
 
 
-def amortization_schedule(
+def build_amortization_schedule(
     principal: float,
     annual_rate: float,
     months: int,
@@ -20,4 +20,4 @@ def amortization_schedule(
 
 
 if __name__ == "__main__":
-    print(amortization_schedule(1200.0, 0.06, 3))
+    print(build_amortization_schedule(1200.0, 0.06, 3))

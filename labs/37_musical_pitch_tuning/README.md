@@ -7,8 +7,8 @@ Convert between MIDI notes and frequencies, measure tuning deviation in cents, a
 
 ## Requirements
 
-- Implement `midi_to_hz` using $f = 440 \cdot 2^{(m - 69) / 12}$.
-- Implement `hz_to_cents_offset` using $1200 \cdot \log_2(f_{\text{measured}} / f_{\text{target}})$, returning no value for non-positive frequencies.
+- Implement `convert_midi_to_hz` using $f = 440 \cdot 2^{(m - 69) / 12}$.
+- Implement `calculate_cents_offset` using $1200 \cdot \log_2(f_{\text{measured}} / f_{\text{target}})$, returning no value for non-positive frequencies.
 - Implement `synthesize_sine_pcm16` and `write_sine_wav` to generate and save mono 16-bit signed PCM audio.
 
 ## Worked Examples

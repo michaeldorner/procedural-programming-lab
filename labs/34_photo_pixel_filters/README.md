@@ -7,7 +7,7 @@ Apply pure pixel filters to 2D RGB images and encode them in binary PPM (`P6`) f
 
 ## Requirements
 
-- Implement `to_grayscale` using luminance $Y = \lfloor 0.299 R + 0.587 G + 0.114 B \rfloor$.
+- Implement `convert_to_grayscale` using luminance $Y = \lfloor 0.299 R + 0.587 G + 0.114 B \rfloor$.
 - Implement `adjust_brightness` to shift each channel by `delta` clamped to $[0, 255]$, and `rotate_90_cw` to rotate rectangular images 90° clockwise.
 - Implement `encode_ppm_p6` to produce a `P6` header followed by raw RGB byte triples.
 

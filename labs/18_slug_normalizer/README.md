@@ -7,7 +7,7 @@ Convert arbitrary title text into clean, lowercase ASCII URL slugs.
 
 ## Requirements
 
-- Implement `to_slug` to convert text to lowercase, keep only ASCII letters and digits, and collapse runs of spaces, underscores, or punctuation into single hyphens.
+- Implement `normalize_slug` to convert text to lowercase, keep only ASCII letters and digits, and collapse runs of spaces, underscores, or punctuation into single hyphens.
 - Ensure no leading or trailing hyphens remain, returning empty text when no alphanumeric characters are present.
 
 ## Worked Examples

@@ -2,7 +2,7 @@
 
 import unittest
 
-from manhattan_distance import calculate_manhattan_distance
+from .manhattan_distance import calculate_manhattan_distance
 
 
 class TestManhattanDistance(unittest.TestCase):

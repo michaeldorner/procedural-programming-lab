@@ -4,7 +4,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from repo_structure_auditor import (
+from .repo_structure_auditor import (
     count_non_empty_lines,
     find_labs_missing_readme,
     list_python_files,

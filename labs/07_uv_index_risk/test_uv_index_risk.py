@@ -3,7 +3,7 @@
 import math
 import unittest
 
-from uv_index_risk import classify_uv_risk, needs_sun_protection
+from .uv_index_risk import classify_uv_risk, needs_sun_protection
 
 
 class TestUvIndexRisk(unittest.TestCase):

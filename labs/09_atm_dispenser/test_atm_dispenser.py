@@ -2,7 +2,7 @@
 
 import unittest
 
-from atm_dispenser import dispense_banknotes
+from .atm_dispenser import dispense_banknotes
 
 
 class TestAtmDispenser(unittest.TestCase):

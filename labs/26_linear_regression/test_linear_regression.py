@@ -2,7 +2,7 @@
 
 import unittest
 
-from linear_regression import fit_linear_regression
+from .linear_regression import fit_linear_regression
 
 
 class TestLinearRegression(unittest.TestCase):

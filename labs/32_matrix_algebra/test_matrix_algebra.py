@@ -2,7 +2,7 @@
 
 import unittest
 
-from matrix_algebra import add_matrices, multiply_matrices, scale_matrix, transpose_matrix
+from .matrix_algebra import add_matrices, multiply_matrices, scale_matrix, transpose_matrix
 
 
 class TestMatrixAlgebra(unittest.TestCase):

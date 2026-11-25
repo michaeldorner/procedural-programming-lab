@@ -4,7 +4,7 @@ Pixel = tuple[int, int, int]
 Image = list[list[Pixel]]
 
 
-def to_grayscale(image: Image) -> Image:
+def convert_to_grayscale(image: Image) -> Image:
     """Convert an RGB image to luminance grayscale."""
     raise NotImplementedError
 

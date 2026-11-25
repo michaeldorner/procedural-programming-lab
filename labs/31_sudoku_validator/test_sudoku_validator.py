@@ -2,7 +2,7 @@
 
 import unittest
 
-from sudoku_validator import is_valid_sudoku
+from .sudoku_validator import is_valid_sudoku
 
 
 class TestSudokuValidator(unittest.TestCase):

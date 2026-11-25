@@ -3,7 +3,7 @@
 import math
 import unittest
 
-from water_boiling_point import estimate_boiling_point_c
+from .water_boiling_point import estimate_boiling_point_c
 
 
 class TestWaterBoilingPoint(unittest.TestCase):

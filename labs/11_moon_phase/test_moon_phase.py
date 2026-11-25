@@ -3,15 +3,15 @@
 import math
 import unittest
 
-from moon_phase import classify_moon_phase, lunar_age_days
+from .moon_phase import classify_moon_phase, calculate_lunar_age_days
 
 
 class TestMoonPhase(unittest.TestCase):
     """Tests for lunar age and 8-phase classification."""
 
     def test_lunar_age_days(self) -> None:
-        self.assertAlmostEqual(lunar_age_days(0), 0.0)
-        self.assertAlmostEqual(lunar_age_days(30), 0.469412, places=4)
+        self.assertAlmostEqual(calculate_lunar_age_days(0), 0.0)
+        self.assertAlmostEqual(calculate_lunar_age_days(30), 0.469412, places=4)
 
     def test_classify_moon_phase(self) -> None:
         self.assertEqual(classify_moon_phase(0.0), "new moon")

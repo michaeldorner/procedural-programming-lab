@@ -7,8 +7,8 @@ Encrypt and decrypt ASCII alphabetic text using a Caesar shift while preserving 
 
 ## Requirements
 
-- Implement `caesar_encrypt` to shift uppercase and lowercase ASCII letters forward by the given shift, wrapping around the 26-letter alphabet.
-- Leave digits, spaces, and punctuation unchanged, and implement `caesar_decrypt` to reverse the shift.
+- Implement `encrypt_caesar` to shift uppercase and lowercase ASCII letters forward by the given shift, wrapping around the 26-letter alphabet.
+- Leave digits, spaces, and punctuation unchanged, and implement `decrypt_caesar` to reverse the shift.
 
 ## Worked Examples
 

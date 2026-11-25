@@ -2,20 +2,20 @@
 
 import unittest
 
-from run_length_encoding import rle_decode, rle_encode
+from .run_length_encoding import decode_rle, encode_rle
 
 
 class TestRunLengthEncoding(unittest.TestCase):
-    """Tests for rle_encode and rle_decode."""
+    """Tests for encode_rle and decode_rle."""
 
     def test_round_trip(self) -> None:
-        self.assertEqual(rle_encode(""), "")
-        self.assertEqual(rle_decode(""), "")
-        self.assertEqual(rle_encode("AAABBC"), "3A2B1C")
-        self.assertEqual(rle_decode("12A1B"), "AAAAAAAAAAAA" + "B")
+        self.assertEqual(encode_rle(""), "")
+        self.assertEqual(decode_rle(""), "")
+        self.assertEqual(encode_rle("AAABBC"), "3A2B1C")
+        self.assertEqual(decode_rle("12A1B"), "AAAAAAAAAAAA" + "B")
 
     def test_invalid_inputs_return_none(self) -> None:
-        self.assertIsNone(rle_encode("A2B"))
-        self.assertIsNone(rle_decode("ABC"))
-        self.assertIsNone(rle_decode("0A"))
-        self.assertIsNone(rle_decode("3A2"))
+        self.assertIsNone(encode_rle("A2B"))
+        self.assertIsNone(decode_rle("ABC"))
+        self.assertIsNone(decode_rle("0A"))
+        self.assertIsNone(decode_rle("3A2"))

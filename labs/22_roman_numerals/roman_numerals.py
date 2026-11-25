@@ -26,15 +26,15 @@ _VALUES_BY_SYMBOL: dict[str, int] = {
 }
 
 
-def int_to_roman(number: int) -> str | None:
+def convert_int_to_roman(number: int) -> str | None:
     """Convert integer in [1, 3999] to canonical Roman numeral, or None if out of range."""
     raise NotImplementedError
 
 
-def roman_to_int(numeral: str) -> int | None:
+def convert_roman_to_int(numeral: str) -> int | None:
     """Convert canonical Roman numeral to int, or None if invalid/non-canonical."""
     raise NotImplementedError
 
 
 if __name__ == "__main__":
-    print("1994 ->", int_to_roman(1994), "back ->", roman_to_int("MCMXCIV"))
+    print("1994 ->", convert_int_to_roman(1994), "back ->", convert_roman_to_int("MCMXCIV"))

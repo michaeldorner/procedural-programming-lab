@@ -7,7 +7,7 @@ Compute the Haversine great-circle distance between two `(latitude, longitude)` 
 
 ## Requirements
 
-- Implement `haversine_distance_km` taking two `(latitude, longitude)` pairs in degrees and returning the great-circle distance $d$ in kilometers:
+- Implement `calculate_haversine_distance_km` taking two `(latitude, longitude)` pairs in degrees and returning the great-circle distance $d$ in kilometers:
 
 $$a = \sin^2\left(\frac{\Delta\varphi}{2}\right) + \cos(\varphi_1)\cos(\varphi_2)\sin^2\left(\frac{\Delta\lambda}{2}\right), \qquad d = 2 R \operatorname{atan2}\left(\sqrt{a}, \sqrt{1 - a}\right)$$
 

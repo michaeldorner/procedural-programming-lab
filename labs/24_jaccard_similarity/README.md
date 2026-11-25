@@ -7,9 +7,9 @@ Compare two token sets using Jaccard similarity, overlap coefficient, and symmet
 
 ## Requirements
 
-- Implement `jaccard_similarity` as $|A \cap B| / |A \cup B|$ (1.0 when both sets are empty).
-- Implement `overlap_coefficient` as $|A \cap B| / \min(|A|, |B|)$ (1.0 if both empty, 0.0 if only one is empty).
-- Implement `symmetric_difference` to return elements belonging to exactly one of the two sets.
+- Implement `calculate_jaccard_similarity` as $|A \cap B| / |A \cup B|$ (1.0 when both sets are empty).
+- Implement `calculate_overlap_coefficient` as $|A \cap B| / \min(|A|, |B|)$ (1.0 if both empty, 0.0 if only one is empty).
+- Implement `find_symmetric_difference` to return elements belonging to exactly one of the two sets.
 
 ## Worked Examples
 
@@ -22,6 +22,6 @@ Compare two token sets using Jaccard similarity, overlap coefficient, and symmet
 ## Run & Test
 
 ```bash
-python jaccard_similarity.py
+python calculate_jaccard_similarity.py
 python -m unittest
 ```

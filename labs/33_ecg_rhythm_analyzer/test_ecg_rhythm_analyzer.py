@@ -2,7 +2,7 @@
 
 import unittest
 
-from ecg_rhythm_analyzer import compute_ecg_metrics, detect_r_peaks
+from .ecg_rhythm_analyzer import compute_ecg_metrics, detect_r_peaks
 
 
 class TestEcgRhythmAnalyzer(unittest.TestCase):

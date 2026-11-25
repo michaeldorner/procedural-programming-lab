@@ -7,9 +7,9 @@ Calculate how many full cartons, loose eggs, and total cartons are needed to pac
 
 ## Requirements
 
-- Implement `full_cartons` to return $\lfloor \text{eggs} / \text{capacity} \rfloor$.
-- Implement `loose_eggs` to return the remaining eggs $\text{eggs} \bmod \text{capacity}$.
-- Implement `minimum_cartons_needed` to return $\lceil \text{eggs} / \text{capacity} \rceil$ using integer arithmetic.
+- Implement `count_full_cartons` to return $\lfloor \text{eggs} / \text{capacity} \rfloor$.
+- Implement `count_loose_eggs` to return the remaining eggs $\text{eggs} \bmod \text{capacity}$.
+- Implement `calculate_minimum_cartons` to return $\lceil \text{eggs} / \text{capacity} \rceil$ using integer arithmetic.
 - Reject negative egg counts or non-positive carton capacities with a value error.
 
 ## Worked Examples

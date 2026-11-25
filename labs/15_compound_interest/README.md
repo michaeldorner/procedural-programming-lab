@@ -7,8 +7,8 @@ Simulate annual compound interest year by year and determine how many years are 
 
 ## Requirements
 
-- Implement `yearly_balances` to raise a value error for negative principal, rate, or years, and otherwise return balances from year 0 through year N rounded to 2 decimal places.
-- Implement `years_to_target` to return the minimum whole years for a positive principal to reach at least the target, rejecting impossible inputs (such as non-positive rate when below target).
+- Implement `simulate_yearly_balances` to raise a value error for negative principal, rate, or years, and otherwise return balances from year 0 through year N rounded to 2 decimal places.
+- Implement `count_years_to_target` to return the minimum whole years for a positive principal to reach at least the target, rejecting impossible inputs (such as non-positive rate when below target).
 
 ## Worked Examples
 
@@ -17,7 +17,7 @@ Simulate annual compound interest year by year and determine how many years are 
 
 ## Implementation Hints
 
-- Use [`round()`](https://docs.python.org/3/library/functions.html#round) for each yearly balance and a `while` loop for `years_to_target`.
+- Use [`round()`](https://docs.python.org/3/library/functions.html#round) for each yearly balance and a `while` loop for `count_years_to_target`.
 
 ## Run & Test
 

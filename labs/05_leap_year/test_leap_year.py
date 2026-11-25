@@ -2,7 +2,7 @@
 
 import unittest
 
-from leap_year import is_leap_year
+from .leap_year import is_leap_year
 
 
 class TestLeapYear(unittest.TestCase):

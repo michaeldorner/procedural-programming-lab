@@ -7,8 +7,8 @@ Compute equivalent series and parallel resistances and find the closest standard
 
 ## Requirements
 
-- Implement `series_resistance` ($\sum R_i$) and `parallel_resistance` ($(\sum \frac{1}{R_i})^{-1}$), raising a value error for empty lists or non-positive resistances.
-- Implement `nearest_e12_value` to return the closest standard E12 decade value for positive target ohms, raising a value error otherwise.
+- Implement `calculate_series_resistance` ($\sum R_i$) and `calculate_parallel_resistance` ($(\sum \frac{1}{R_i})^{-1}$), raising a value error for empty lists or non-positive resistances.
+- Implement `find_nearest_e12_value` to return the closest standard E12 decade value for positive target ohms, raising a value error otherwise.
 
 ## Worked Examples
 

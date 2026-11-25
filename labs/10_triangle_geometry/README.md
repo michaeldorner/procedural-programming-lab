@@ -9,7 +9,7 @@ Validate triangle side lengths, classify triangles by side equality, and compute
 
 - Implement `is_valid_triangle` to verify all sides are strictly positive and satisfy $a + b > c$, $a + c > b$, and $b + c > a$.
 - Implement `classify_triangle` to return no value if invalid, or equilateral, isosceles, or scalene.
-- Implement `triangle_area` to return $\sqrt{s(s - a)(s - b)(s - c)}$ with $s = \frac{a + b + c}{2}$, raising a value error if invalid.
+- Implement `calculate_triangle_area` to return $\sqrt{s(s - a)(s - b)(s - c)}$ with $s = \frac{a + b + c}{2}$, raising a value error if invalid.
 
 ## Worked Examples
 

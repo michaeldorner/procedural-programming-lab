@@ -2,7 +2,7 @@
 
 import unittest
 
-from isbn_validator import is_valid_isbn10, is_valid_isbn13
+from .isbn_validator import is_valid_isbn10, is_valid_isbn13
 
 
 class TestIsbnValidator(unittest.TestCase):

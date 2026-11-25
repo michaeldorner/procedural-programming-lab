@@ -2,7 +2,7 @@
 
 import unittest
 
-from triangle_geometry import classify_triangle, is_valid_triangle, triangle_area
+from .triangle_geometry import classify_triangle, is_valid_triangle, calculate_triangle_area
 
 
 class TestTriangleGeometry(unittest.TestCase):
@@ -17,8 +17,8 @@ class TestTriangleGeometry(unittest.TestCase):
         self.assertEqual(classify_triangle(3.0, 3.0, 3.0), "equilateral")
         self.assertEqual(classify_triangle(3.0, 3.0, 4.0), "isosceles")
         self.assertEqual(classify_triangle(3.0, 4.0, 5.0), "scalene")
-        self.assertAlmostEqual(triangle_area(3.0, 4.0, 5.0), 6.0)
+        self.assertAlmostEqual(calculate_triangle_area(3.0, 4.0, 5.0), 6.0)
         with self.assertRaises(ValueError):
             classify_triangle(1.0, 2.0, 10.0)
         with self.assertRaises(ValueError):
-            triangle_area(1.0, 2.0, 10.0)
+            calculate_triangle_area(1.0, 2.0, 10.0)

@@ -1,7 +1,7 @@
 """Lab 30: Course Prerequisite Checker."""
 
 
-def missing_prerequisites(
+def find_missing_prerequisites(
     course: str,
     completed: set[str],
     prereqs_by_course: dict[str, set[str]],
@@ -19,7 +19,7 @@ def can_enroll(
     raise NotImplementedError
 
 
-def unlocked_courses(
+def find_unlocked_courses(
     completed: set[str],
     prereqs_by_course: dict[str, set[str]],
 ) -> set[str]:
@@ -29,4 +29,4 @@ def unlocked_courses(
 
 if __name__ == "__main__":
     prereqs = {"CS101": set(), "CS102": {"CS101"}, "CS201": {"CS102"}}
-    print("unlocked:", unlocked_courses({"CS101"}, prereqs))
+    print("unlocked:", find_unlocked_courses({"CS101"}, prereqs))

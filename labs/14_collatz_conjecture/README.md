@@ -7,7 +7,7 @@ Generate Collatz sequences, count stopping times, and find peak values for posit
 
 ## Requirements
 
-- Implement `collatz_sequence`, `collatz_stopping_time`, and `collatz_peak` to raise a value error for non-positive starting integers.
+- Implement `generate_collatz_sequence`, `count_collatz_steps`, and `find_collatz_peak` to raise a value error for non-positive starting integers.
 - Repeatedly halve even numbers and map odd numbers $n$ to $3n + 1$ until reaching $1$.
 
 ## Worked Examples

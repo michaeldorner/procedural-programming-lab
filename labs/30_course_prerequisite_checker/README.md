@@ -7,9 +7,9 @@ Determine missing prerequisites, enrollment eligibility, and newly unlocked cour
 
 ## Requirements
 
-- Implement `missing_prerequisites` to return prerequisites required for a course that have not been completed.
+- Implement `find_missing_prerequisites` to return prerequisites required for a course that have not been completed.
 - Implement `can_enroll` to indicate whether all prerequisites for a course are satisfied.
-- Implement `unlocked_courses` to return all uncompleted courses whose prerequisites are satisfied.
+- Implement `find_unlocked_courses` to return all uncompleted courses whose prerequisites are satisfied.
 
 ## Worked Examples
 
@@ -18,7 +18,7 @@ Determine missing prerequisites, enrollment eligibility, and newly unlocked cour
 ## Implementation Hints
 
 - Use [`dict.get()`](https://docs.python.org/3/library/stdtypes.html#dict.get) with an empty set default and set difference `-`.
-- Optional (for pros): Use a set comprehension for `unlocked_courses`.
+- Optional (for pros): Use a set comprehension for `find_unlocked_courses`.
 
 ## Run & Test
 

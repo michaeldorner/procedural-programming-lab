@@ -7,8 +7,8 @@ Compress runs of repeated non-digit characters into `<count><char>` pairs and de
 
 ## Requirements
 
-- Implement `rle_encode` to reject inputs containing digits by returning no value, preserve empty text, and encode each consecutive run as its count followed by the character.
-- Implement `rle_decode` to reconstruct the original text, returning no value if counts are missing, zero, or followed by no character.
+- Implement `encode_rle` to reject inputs containing digits by returning no value, preserve empty text, and encode each consecutive run as its count followed by the character.
+- Implement `decode_rle` to reconstruct the original text, returning no value if counts are missing, zero, or followed by no character.
 
 ## Worked Examples
 

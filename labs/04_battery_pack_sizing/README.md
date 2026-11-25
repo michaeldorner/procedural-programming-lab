@@ -7,9 +7,9 @@ Compute pack voltage, total Watt-hour energy capacity, and estimated charging du
 
 ## Requirements
 
-- Implement `pack_voltage` as the product of cell voltage and series cell count.
-- Implement `pack_energy_wh` as the product of cell voltage, cell capacity in Ah, series count, and parallel count.
-- Implement `charge_time_hours` as $\frac{\text{energy\_wh}}{\text{charger\_watts} \cdot \text{efficiency}}$.
+- Implement `calculate_pack_voltage` as the product of cell voltage and series cell count.
+- Implement `calculate_pack_energy_wh` as the product of cell voltage, cell capacity in Ah, series count, and parallel count.
+- Implement `calculate_charge_time_hours` as $\frac{\text{energy\_wh}}{\text{charger\_watts} \cdot \text{efficiency}}$.
 - Reject non-positive cell ratings, cell counts, or charger power, negative energy, or efficiency outside $(0, 1]$ with a value error.
 
 ## Worked Examples

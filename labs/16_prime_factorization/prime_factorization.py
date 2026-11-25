@@ -1,7 +1,7 @@
 """Lab 16: Prime Factorization."""
 
 
-def prime_factors(number: int) -> list[int]:
+def factorize_primes(number: int) -> list[int]:
     """Return sorted prime factors of number >= 2.
 
 Raises:
@@ -16,4 +16,4 @@ def is_prime(number: int) -> bool:
 
 
 if __name__ == "__main__":
-    print("84:", prime_factors(84), "29 prime:", is_prime(29))
+    print("84:", factorize_primes(84), "29 prime:", is_prime(29))

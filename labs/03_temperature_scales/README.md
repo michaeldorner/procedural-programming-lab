@@ -7,9 +7,9 @@ Convert temperatures between Celsius ($C$), Fahrenheit ($F$), and Kelvin ($K$) w
 
 ## Requirements
 
-- Implement `celsius_to_fahrenheit` using $F = \frac{9}{5}C + 32$.
-- Implement `fahrenheit_to_celsius` using $C = \frac{5}{9}(F - 32)$.
-- Implement `celsius_to_kelvin` using $K = C + 273.15$.
+- Implement `convert_celsius_to_fahrenheit` using $F = \frac{9}{5}C + 32$.
+- Implement `convert_fahrenheit_to_celsius` using $C = \frac{5}{9}(F - 32)$.
+- Implement `convert_celsius_to_kelvin` using $K = C + 273.15$.
 - Reject non-finite values and temperatures strictly below absolute zero ($-273.15\,^\circ{C}$ or $-459.67\,^\circ{F}$) with a value error, while allowing exact absolute zero.
 
 ## Worked Examples

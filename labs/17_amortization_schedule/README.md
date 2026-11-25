@@ -7,8 +7,8 @@ Compute fixed monthly loan payments and a month-by-month principal/interest amor
 
 ## Requirements
 
-- Implement `monthly_payment` to raise a value error for non-positive principal/months or negative interest rate; handle zero-interest loans as equal principal installments and positive-rate loans via $M = P \frac{r(1+r)^n}{(1+r)^n - 1}$ with $r = \text{annual\_rate}/12$.
-- Implement `amortization_schedule` to return a list of `(month, principal_paid, interest_paid, remaining_balance)` rows rounded to 2 decimal places with a non-negative final balance.
+- Implement `calculate_monthly_payment` to raise a value error for non-positive principal/months or negative interest rate; handle zero-interest loans as equal principal installments and positive-rate loans via $M = P \frac{r(1+r)^n}{(1+r)^n - 1}$ with $r = \text{annual\_rate}/12$.
+- Implement `build_amortization_schedule` to return a list of `(month, principal_paid, interest_paid, remaining_balance)` rows rounded to 2 decimal places with a non-negative final balance.
 
 ## Worked Examples
 
@@ -21,6 +21,6 @@ Compute fixed monthly loan payments and a month-by-month principal/interest amor
 ## Run & Test
 
 ```bash
-python amortization_schedule.py
+python build_amortization_schedule.py
 python -m unittest
 ```

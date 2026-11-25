@@ -2,13 +2,13 @@
 
 import unittest
 
-from slug_normalizer import to_slug
+from .slug_normalizer import normalize_slug
 
 
 class TestSlugNormalizer(unittest.TestCase):
-    """Tests for to_slug."""
+    """Tests for normalize_slug."""
 
     def test_slugification(self) -> None:
-        self.assertEqual(to_slug("  Hello, World!  2026 "), "hello-world-2026")
-        self.assertEqual(to_slug("one__two---three"), "one-two-three")
-        self.assertEqual(to_slug("___!!!"), "")
+        self.assertEqual(normalize_slug("  Hello, World!  2026 "), "hello-world-2026")
+        self.assertEqual(normalize_slug("one__two---three"), "one-two-three")
+        self.assertEqual(normalize_slug("___!!!"), "")

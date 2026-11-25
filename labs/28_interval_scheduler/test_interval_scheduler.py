@@ -2,7 +2,7 @@
 
 import unittest
 
-from interval_scheduler import select_max_meetings
+from .interval_scheduler import select_max_meetings
 
 
 class TestIntervalScheduler(unittest.TestCase):
