@@ -4,17 +4,10 @@
 def simple_moving_average(values: list[float], window: int) -> list[float]:
     """Return sliding window averages of length window.
 
-    Raises:
-        ValueError: If window <= 0.
+Raises:
+    ValueError: If window <= 0.
     """
-    if window <= 0:
-        raise ValueError(f"window must be positive, got {window}")
-    if len(values) < window:
-        return []
-    return [
-        sum(values[idx : idx + window]) / window
-        for idx in range(len(values) - window + 1)
-    ]
+    raise NotImplementedError
 
 
 if __name__ == "__main__":

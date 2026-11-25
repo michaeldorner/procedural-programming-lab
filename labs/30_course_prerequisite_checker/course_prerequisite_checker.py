@@ -7,8 +7,7 @@ def missing_prerequisites(
     prereqs_by_course: dict[str, set[str]],
 ) -> set[str]:
     """Return prerequisites required for course that are not in completed."""
-    required: set[str] = prereqs_by_course.get(course, set())
-    return required - completed
+    raise NotImplementedError
 
 
 def can_enroll(
@@ -17,7 +16,7 @@ def can_enroll(
     prereqs_by_course: dict[str, set[str]],
 ) -> bool:
     """Return True if all prerequisites for course are in completed."""
-    return not missing_prerequisites(course, completed, prereqs_by_course)
+    raise NotImplementedError
 
 
 def unlocked_courses(
@@ -25,11 +24,7 @@ def unlocked_courses(
     prereqs_by_course: dict[str, set[str]],
 ) -> set[str]:
     """Return courses not in completed whose prerequisites are all satisfied."""
-    return {
-        course
-        for course in prereqs_by_course
-        if course not in completed and can_enroll(course, completed, prereqs_by_course)
-    }
+    raise NotImplementedError
 
 
 if __name__ == "__main__":

@@ -15,7 +15,6 @@ _ROMAN_TABLE: tuple[tuple[int, str], ...] = (
     (4, "IV"),
     (1, "I"),
 )
-
 _VALUES_BY_SYMBOL: dict[str, int] = {
     "I": 1,
     "V": 5,
@@ -29,41 +28,12 @@ _VALUES_BY_SYMBOL: dict[str, int] = {
 
 def int_to_roman(number: int) -> str | None:
     """Convert integer in [1, 3999] to canonical Roman numeral, or None if out of range."""
-    if number < 1 or number > 3999:
-        return None
-    remaining: int = number
-    parts: list[str] = []
-    for value, symbol in _ROMAN_TABLE:
-        while remaining >= value:
-            parts.append(symbol)
-            remaining -= value
-    return "".join(parts)
+    raise NotImplementedError
 
 
 def roman_to_int(numeral: str) -> int | None:
     """Convert canonical Roman numeral to int, or None if invalid/non-canonical."""
-    cleaned: str = numeral.strip().upper()
-    if not cleaned:
-        return None
-    total: int = 0
-    idx: int = 0
-    while idx < len(cleaned):
-        curr = _VALUES_BY_SYMBOL.get(cleaned[idx])
-        if curr is None:
-            return None
-        if idx + 1 < len(cleaned):
-            nxt = _VALUES_BY_SYMBOL.get(cleaned[idx + 1])
-            if nxt is None:
-                return None
-            if nxt > curr:
-                total += nxt - curr
-                idx += 2
-                continue
-        total += curr
-        idx += 1
-    if int_to_roman(total) != cleaned:
-        return None
-    return total
+    raise NotImplementedError
 
 
 if __name__ == "__main__":
